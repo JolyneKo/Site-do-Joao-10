@@ -1,0 +1,76 @@
+@import 'reset';
+@import 'mixins';
+
+// Variáveis
+$navbar-altura: 100px;
+$navbar-bg-color: rgb(20, 25, 41);
+$search-altura: 40px;
+
+// Barra Superior
+.navbar {
+  background-color: $navbar-bg-color;
+  height: $navbar-altura;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  // Logo
+  .navbar_logo {
+    width: 150px;
+    height: auto;
+    margin: 0 50px;
+    cursor: pointer;
+  }
+
+  // Links de navegação
+  .navbar_links {
+    display: flex;
+    height: 100%;
+
+    .link {
+      padding: 30px;
+      @include alinharCentro(row);
+
+      &:hover {
+        background-color: lighten($navbar-bg-color, 10%);
+      }
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.5rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .navbar_search_box {
+    position: absolute;
+    right: 50px;
+
+    .search_bar {
+      background-color: $navbar-bg-color;
+      border: 1px rgb(66, 66, 66) solid;
+      height: $search-altura;
+      color: white;
+      padding: 0 20px;
+    }
+
+    .btn_search {
+      background-color: orange;
+      border: none;
+      width: 50px;
+      height: $search-altura;
+      font-size: 1.3rem;
+      float: right;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      cursor: pointer;
+      @include alinharCentro(row);
+    }
+  }
+}
