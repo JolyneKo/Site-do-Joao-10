@@ -48,6 +48,7 @@ $search-altura: 40px;
     }
   }
 
+  // Barra de pesquisa
   .navbar_search_box {
     position: absolute;
     right: 50px;
@@ -72,5 +73,58 @@ $search-altura: 40px;
       cursor: pointer;
       @include alinharCentro(row);
     }
+
+    // Não mostrar na versão Desktop
+    .nav_menu_icon {
+      display: none;
+    }
+  }
+
+  // Versão mobile
+  @include mobile() {
+    @include alinharCentro(row);
+
+    .navbar_links {
+      display: none;
+    }
+
+    .navbar_search_box {
+      display: none;
+    }
+
+    .nav_menu_icon {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      left: 30px;
+
+      .linha {
+        background-color: white;
+        width: 40px;
+        height: 5px;
+      }
+
+      .linha::before,
+      .linha::after {
+        content: '';
+        position: absolute;
+        background-color: white;
+        width: 40px;
+        height: 5px;
+      }
+
+      .linha::before {
+        transform: translateY(-15px);
+      }
+
+      .linha::after {
+        transform: translateY(15px);
+      }
+    }
+  }
+
+  .navbar_logo {
+    width: 130px;
+    height: auto;
   }
 }
