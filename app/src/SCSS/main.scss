@@ -1,0 +1,58 @@
+@import 'reset';
+@import 'mixins';
+
+// Deixar html e body usar a página inteira
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+// Variáveis
+$bg-color: rgb(11, 11, 41);
+$article-bg-color: rgb(20, 25, 41);
+
+// Main
+.main {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: $bg-color;
+  grid-gap: 50px;
+}
+
+// Estilo para o container dos artigos
+.article {
+  width: 500px;
+  height: auto;
+  background-color: $article-bg-color;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.7);
+
+  .article_image {
+    width: 100%;
+    height: auto;
+  }
+
+  .article_title {
+    color: orange;
+    margin: 20px;
+    margin-top: 30px;
+  }
+
+  .article_description {
+    color: white;
+    margin: 20px;
+    font-size: 1.3rem;
+  }
+
+  .article_date {
+    margin: 20px;
+    color: white;
+    opacity: 0.5;
+  }
+}

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Header from './Components/Header';
 import Menu from './Components/Menu';
+import Main from './Components/Main';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(() => false);
@@ -13,6 +14,7 @@ function App() {
     <>
       <Header openMenu={openMenu}/>
       {isMenuOpen && <Menu/>}
+      <Main/>
     </>
   )
 }
