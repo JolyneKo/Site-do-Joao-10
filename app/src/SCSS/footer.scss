@@ -1,0 +1,48 @@
+@import "reset";
+@import "mixins";
+
+$bgColor: rgb(31, 31, 31);
+$iconColor: white;
+$iconSize: 4rem;
+
+.footer {
+  background-color: $bgColor;
+  padding: 100px;
+  @include alinharCentro(column);
+
+  .icons {
+    .icon {
+      font-size: $iconSize;
+      color: $iconColor;
+      margin: 0 10px;
+    }
+  }
+
+  .links {
+    display: flex;
+    margin: 10px 0;
+
+    .link:first-child {
+      list-style: none;
+    }
+
+    .link {
+      color: grey;
+      margin: 0 10px;
+      padding: 0 15px;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  }
+
+  .copyright {
+    color: grey;
+    opacity: 70%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+  }
+}
