@@ -1,33 +1,29 @@
-import { useState } from 'react';
+import { Component } from 'react';
+import Notícias from './Notícias';
 import '../SCSS/main.scss';
-import ContainerArticle from './ContainerArticle';
 
-function Main() {
+class Main extends Component {
+  state = {
+    articles: [],
+  }
 
-  const [articles, setArticles] = useState([]);
+  componentDidMount() {
+    fetch('http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=95039c3e033340cbbfbb34114d1f4771')
+      .then(res => res.json())
+      .then(json => this.setState({
+        articles: json.articles,
+      }))
+      .then(res => console.log('ae'))
+      .catch(error => console.log(error))
+  }
 
-  const articleInfo = articles.map((article, key) => {
-    const { urlToImage: image, title, description, publishedAt} = article;
+  render() {
     return (
-      <ContainerArticle 
-        image={image} title={title} 
-        description={description} 
-        publishedDate={publishedAt}
-        key={key + 1}
-      />
+      <main className="main">
+        <Notícias articles={this.state.articles}/>
+      </main>
     )
-  });
-
-  fetch('http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=95039c3e033340cbbfbb34114d1f4771')
-    .then(res => res.json())
-    .then(json => setArticles(json.articles))
-    .catch(error => console.log(error))
-
-  return (
-    <main className="main">
-      {articleInfo}
-    </main>
-  )
+  }
 }
 
 export default Main;

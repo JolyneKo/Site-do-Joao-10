@@ -1,5 +1,5 @@
-@import 'reset';
-@import 'mixins';
+@import "reset";
+@import "mixins";
 
 // Deixar html e body usar a página inteira
 html,
@@ -9,6 +9,7 @@ body {
 
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 // Variáveis
@@ -22,6 +23,12 @@ $article-bg-color: rgb(20, 25, 41);
   grid-template-columns: 1fr 1fr 1fr;
   background-color: $bg-color;
   grid-gap: 50px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+    padding: 50px 0;
+  }
 }
 
 // Estilo para o container dos artigose
@@ -54,5 +61,10 @@ $article-bg-color: rgb(20, 25, 41);
     margin: 20px;
     color: white;
     opacity: 0.5;
+  }
+
+  @include mobile {
+    width: 100vw;
+    box-shadow: none;
   }
 }

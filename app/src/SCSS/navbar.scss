@@ -1,5 +1,5 @@
-@import 'reset';
-@import 'mixins';
+@import "reset";
+@import "mixins";
 
 // Variáveis
 $navbar-altura: 100px;
@@ -9,6 +9,7 @@ $search-altura: 40px;
 // Barra Superior
 .navbar {
   background-color: $navbar-bg-color;
+  width: 100%;
   height: $navbar-altura;
   display: flex;
   align-items: center;
@@ -106,7 +107,7 @@ $search-altura: 40px;
 
       .linha::before,
       .linha::after {
-        content: '';
+        content: "";
         position: absolute;
         background-color: white;
         width: 40px;
